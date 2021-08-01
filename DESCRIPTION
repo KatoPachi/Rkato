@@ -1,0 +1,35 @@
+Package: Rkato
+Title: My R functions
+Version: 0.0.1
+Authors@R: 
+    person(given = "Hiroki",
+           family = "Kato",
+           role = c("aut", "cre"),
+           email = "vge008kh@student.econ.osaka-u.ac.jp")
+Author: Hiroki Kato[aut]
+Maintainer: Hiroki Kato <vge008kh@student.econ.osaka-u.ac.jp>
+Description: This package is a set of original functions defined by KatoPachi
+    to keep consistency across my projects.
+    This package is public, but we do not take any responsibility and liability for use.
+Depends:
+    R (>= 4.0.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    purrr,
+    ggplot2,
+    magrittr,
+    stringr,
+    stats,
+    dplyr,
+    tidyr,
+    tidyselect,
+    fixest,
+    lfe,
+    lmtest,
+    sandwich,
+    tibble,
+    margins
