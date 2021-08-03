@@ -4,7 +4,14 @@
 \alias{regtab}
 \title{Make regression table}
 \usage{
-regtab(obj, keep_coef = NULL, rm_coef = NULL, label_coef = NULL, ...)
+regtab(
+  obj,
+  keep_coef = NULL,
+  rm_coef = NULL,
+  label_coef = NULL,
+  add_line = NULL,
+  ...
+)
 }
 \arguments{
 \item{obj}{a list or object including regression analysis}
@@ -14,6 +21,8 @@ regtab(obj, keep_coef = NULL, rm_coef = NULL, label_coef = NULL, ...)
 \item{rm_coef}{a character vector of variables removed from table}
 
 \item{label_coef}{a list including \verb{ols variable name = new variable name}}
+
+\item{add_line}{a list including additional contents of each column.}
 
 \item{...}{other augments which pass on each augment. See details.}
 }
