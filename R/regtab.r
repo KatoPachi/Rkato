@@ -8,6 +8,7 @@
 #' @param keep_coef a character vector of variables kept
 #' @param rm_coef a character vector of variables removed from table
 #' @param label_coef a list including `ols variable name = new variable name`
+#' @param add_line a list including additional contents of each column.
 #' @param ... other augments which pass on each augment. See details.
 #'
 #' @return a data frame which includes all character strings
@@ -27,6 +28,7 @@
 #' @importFrom tidyr pivot_longer
 #' @importFrom tibble tribble
 #' @importFrom tibble tibble
+#' @importFrom tibble as_tibble
 #' @importFrom magrittr %>%
 #' @importFrom margins margins
 #' @importFrom fixest r2
@@ -40,6 +42,7 @@
 regtab <- function(
   obj,
   keep_coef = NULL, rm_coef = NULL, label_coef = NULL,
+  add_line = NULL,
   ...
 ) {
 
@@ -84,7 +87,16 @@ regtab <- function(
     c("vars", "stat", paste0("reg", seq_len(ncol(stattab) - 2)))
   )
 
-  tab <- bind_rows(coeftab, stattab)
+  # make add line tab
+  if (!is.null(add_line)) {
+    addtab <- as_tibble(add_line) %>%
+      mutate(stat = "add")
+
+    tab <- bind_rows(coeftab, addtab) %>%
+      bind_rows(stattab)
+  } else {
+    tab <- bind_rows(coeftab, stattab)
+  }
 
   return(tab)
 
