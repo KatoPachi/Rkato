@@ -71,7 +71,12 @@ extrakable <- function(
   # add footnote if specified
   if (!is.null(footnote)) {
     tbl <- tbl %>%
-      footnote(general_title = "", general = footnote, threeparttable = TRUE)
+      footnote(
+        general_title = "",
+        general = footnote,
+        threeparttable = TRUE,
+        escape = FALSE
+      )
   }
 
   return(tbl)
