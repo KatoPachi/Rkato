@@ -4,10 +4,22 @@
 \alias{ggtemp}
 \title{My ggplot2 template}
 \usage{
-ggtemp(flip = FALSE)
+ggtemp(
+  flip = FALSE,
+  family = NULL,
+  size = list(title = 13, text = 9, caption = 11),
+  legend_key_size = 1
+)
 }
 \arguments{
 \item{flip}{logical value to whether \code{ggplot2::coord_flip()} is implemented.}
+
+\item{family}{specify font registered in \code{grDevices::windowsFonts()}}
+
+\item{size}{list of font size. \code{title} is axis.title and legend.title.
+\code{text} is axis.text and legend.text. \code{caption} is plot.caption.}
+
+\item{legend_key_size}{specify legend.key.size. Unit is "cm."}
 }
 \value{
 return an object whose class is \code{gg} and \code{theme}.
